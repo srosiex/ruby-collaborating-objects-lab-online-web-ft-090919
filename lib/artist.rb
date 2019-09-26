@@ -20,14 +20,20 @@ end
     song_name.artist = self
 end
 ###
-  def self.find_or_create_by_name(name)
-  self.all.find {|artist| artist.name == name}  || self.new(name)
-  end
+  # def self.find_or_create_by_name(name)
+  # self.all.find {|artist| artist.name == name}  || self.new(name)
+  # end
 
   def print_songs
     songs
     @songs.each {|song| puts song.name}
   end
 
+  # def self.new_by_filename(name)
+  #   self.all.find{|artist| artist.name == name} || self.new(name).save
+  # end
 
+def self.find_or_create_by_name(name)
+  self.all.find{|artist| artist.name == name} || self.new(name)
+end
 end
